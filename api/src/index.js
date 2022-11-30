@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import { checkJwt } from "./auth/jwt-middleware.js";
 import { postBeep, BeepTooLongError } from "./use-case/post-beep.js";
 import { getUserHome } from "./use-case/get-user-home.js"
+import { like } from "./use-case/like.js";
 
 const app = express();
 
@@ -35,4 +36,9 @@ app.post("/beep", async (req, res) => {
   app.get("/home", async (req, res) => {
     const home = await getUserHome(req.auth.sub);
     res.status(200).json(home);
+  });
+
+  app.put("/like:beepId", async (req,res) => {
+    await like(req.auth.sub, req.params.beepId)
+    res.status(200).send();
   });
