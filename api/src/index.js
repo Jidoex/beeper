@@ -5,14 +5,13 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import { checkJwt } from "./auth/jwt-middleware.js";
 import { postBeep, BeepTooLongError } from "./use-case/post-beep.js";
+import { getUserHome } from "./use-case/get-user-home.js"
 
 const app = express();
 
-//... app.use(bodyParser.json());
-app.use(checkJwt);
-
 app.use(cors());
 app.use(bodyParser.json());
+app.use(checkJwt);
 
 app.get("/", (req, res) => {
     res.status(200).send(`Hello ${req.auth.sub}`);
