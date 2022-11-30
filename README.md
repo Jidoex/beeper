@@ -137,7 +137,7 @@ Install the dependencies: copy the following in a `package.json` file, then run 
 }
 ```
  
-Create an `src` folder, and an `src/index.js` file:
+Create a `src` folder, and a `src/index.js` file:
 ```js
 // In index.js
  
@@ -158,7 +158,7 @@ app.listen(8080);
 ```
 
 Run the app with `node src/index.js`, then test it by navigating to `localhost:8080` in your browser.
-Stop the app, then rerun it with `npx nodemeon src/index.js`. This will automatically restart your app on file change.
+Stop the app, then rerun it with `npx nodemon src/index.js`. This will automatically restart your app on file change.
 
 ## Load environment variables and secrets
 
